@@ -1,17 +1,51 @@
-# admin_dashboard
+# Easy Investment
 
-A new Flutter project.
+A real estate investment platform developed as a graduation project. The system enables investors to browse investment opportunities, analyze property information, and manage their investment portfolios through a modern and user-friendly interface.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Built multi role real estate investment platform (users, admins, lawyers, analysts)
+- Implemented legal validation workflows for property transactions
+- Developed economic analysis modules for investment evaluation
+- Configured ecommendation system based on economic and residential data
+- Built admin dashboard for user management, rewards, and system control
+- Integrated FAQ system and engagement reward mechanisms
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Frontend
+- Flutter
+- Dart
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
->>>>>>> 78198ef (Initial Loading)
+### Backend
+- Laravel
+- PHP
+
+### Database
+- MySQL
+
+### Tools
+- Git & GitHub
+- Postman
+- VS Code
+- PHP Storm
+
+## Project Structure
+|lib
+├── gen
+├── presentations/
+|   ├── auth
+|   ├── common_questions
+|   ├── employees
+|   ├── monitoring_hisotyr
+|   ├── profile
+|   ├── properties
+|   ├── public
+|   ├── requests 
+|   ├── rewards
+|   ├── search
+|   ├── transfer_money
+|   ├── users
+|   └── wallet
+├── util
+├── main.dart
