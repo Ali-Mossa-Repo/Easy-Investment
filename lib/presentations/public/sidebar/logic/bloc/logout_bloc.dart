@@ -21,9 +21,8 @@ class LogoutBloc extends Bloc<LogoutEvent, LogoutState> {
       final String? token = await SafeStorage.read('token');
       final response = await logoutUsecase(token!);
       response.fold(
-        (failed) async {
+        (failed) {
           emit(FailedSendLogoutState(message: failed.message));
-          await sidebarMiddleware.removeToken();
         },
         (success) async {
           emit(SuccessSendLogoutState());

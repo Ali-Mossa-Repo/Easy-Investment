@@ -18,6 +18,7 @@ import 'package:admin_dashboard/presentations/rewards/presentation/widgets/view_
 import 'package:admin_dashboard/presentations/search/presentation/search_page.dart';
 import 'package:admin_dashboard/presentations/settings/presentation/settings_page.dart';
 import 'package:admin_dashboard/presentations/settings/presentation/widgets/change_password/change_password_page.dart';
+import 'package:admin_dashboard/presentations/transfer_money/presentation/transfer_money_page.dart';
 import 'package:admin_dashboard/presentations/users/presentation/users_page.dart';
 import 'package:admin_dashboard/presentations/users/presentation/widgets/add_user/add_user_page.dart';
 import 'package:admin_dashboard/presentations/users/presentation/widgets/view_users/view_user_page.dart';
@@ -83,6 +84,8 @@ class MainPageMiddleware {
         return ChangePasswordPage();
       case MoveToWalletPageState():
         return WalletPage();
+      case MoveToTransferRequestsPageState():
+        return TransferMoneyPage();
     }
   }
 }

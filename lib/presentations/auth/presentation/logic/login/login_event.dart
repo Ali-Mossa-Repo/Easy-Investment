@@ -8,5 +8,3 @@ sealed class LoginEvent extends Equatable {
 }
 
 class SendLoginEvent extends LoginEvent {}
-
-class CheckLoggingEvent extends LoginEvent {}

@@ -30,6 +30,7 @@ class ChangePageBloc extends Bloc<ChangePageEvent, ChangePageState> {
     on<MoveToViewPropertyPageEvent>(moveToViewProperty);
     on<MoveToChangePsswordPageEvent>(moveToChangePassword);
     on<MoveToWalletPageEvent>(moveToWallet);
+    on<MoveToTransferRequestsPageEvent>(moveToTransferRequests);
   }
 
   void moveToHomePage(
@@ -111,10 +112,12 @@ class ChangePageBloc extends Bloc<ChangePageEvent, ChangePageState> {
     MoveToSearchPageEvent event,
     Emitter<ChangePageState> emit,
   ) => emit(MoveToSearchPageState(title: event.title));
+
   void moveToViewCommonQuestoin(
     MoveToViewCommonQuestionPageEvent event,
     Emitter<ChangePageState> emit,
   ) => emit(MoveToViewCommonQuestionPageState(title: event.title));
+
   void moveToAddAdminCommonQuestoin(
     MoveToAddAdminCommonQuestionPageEvent event,
     Emitter<ChangePageState> emit,
@@ -129,6 +132,7 @@ class ChangePageBloc extends Bloc<ChangePageEvent, ChangePageState> {
     MoveToAddRewardPageEvent event,
     Emitter<ChangePageState> emit,
   ) => emit(MoveToAddRewardPageState(title: event.title));
+
   void moveToUpdateReward(
     MoveToViewUpdateRewardPageEvent event,
     Emitter<ChangePageState> emit,
@@ -148,4 +152,9 @@ class ChangePageBloc extends Bloc<ChangePageEvent, ChangePageState> {
     MoveToWalletPageEvent event,
     Emitter<ChangePageState> emit,
   ) => emit(MoveToWalletPageState(title: event.title));
+
+  void moveToTransferRequests(
+    MoveToTransferRequestsPageEvent event,
+    Emitter<ChangePageState> emit,
+  ) => emit(MoveToTransferRequestsPageState(title: event.title));
 }

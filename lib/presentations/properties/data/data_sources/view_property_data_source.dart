@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:admin_dashboard/presentations/properties/domain/entities/view_property_entity.dart';
 import 'package:admin_dashboard/presentations/properties/domain/entities/view_property_request_entity.dart';
 import 'package:admin_dashboard/presentations/requests/domain/entities/documents_images_entity.dart';

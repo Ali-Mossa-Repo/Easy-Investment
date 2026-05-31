@@ -140,3 +140,8 @@ class MoveToChangePsswordPageState extends ChangePageState {
 class MoveToWalletPageState extends ChangePageState {
   MoveToWalletPageState({required super.title});
 }
+
+// ignore: must_be_immutable
+class MoveToTransferRequestsPageState extends ChangePageState {
+  MoveToTransferRequestsPageState({required super.title});
+}

@@ -271,14 +271,13 @@ class PropertiesMiddlewar {
   }
 
   void sendPropertyDesicion(ViewPropertyBloc bloc, int id) {
-    switch (id) {
+    switch (_currentValue) {
       case 0:
         bloc.add(SetPropertySoldEvent(id: id));
         break;
       case 1:
         bloc.add(NewPropertyStudyEvent(id: id));
         break;
-
       case 2:
         bloc.add(ShowOnStageEvent(id: id));
         break;

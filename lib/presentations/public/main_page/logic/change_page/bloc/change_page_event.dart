@@ -134,3 +134,8 @@ class MoveToChangePsswordPageEvent extends ChangePageEvent {
 class MoveToWalletPageEvent extends ChangePageEvent {
   MoveToWalletPageEvent({required super.title});
 }
+
+// ignore: must_be_immutable
+class MoveToTransferRequestsPageEvent extends ChangePageEvent {
+  MoveToTransferRequestsPageEvent({required super.title});
+}

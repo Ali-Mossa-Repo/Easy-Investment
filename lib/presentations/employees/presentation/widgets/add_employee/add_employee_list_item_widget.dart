@@ -61,26 +61,19 @@ class AddEmployeeListItemWidget extends StatelessWidget {
                         const SizedBox(height: 10),
                       ],
                     ),
-                context
-                    .read<AddEmployeeBloc>()
-                    .employeesMiddleware
-                    .getCorrectWidgetForAddEmployee(state, size)
-                    .fold(
-                      (_) => AddNewMember(
-                        onPress:
-                            () => context
-                                .read<AddEmployeeBloc>()
-                                .employeesMiddleware
-                                .addEmployeeFunction(
-                                  context,
-                                  context.read<AddEmployeeBloc>(),
-                                ),
+                AddNewMember(
+                  onPress:
+                      () => context
+                          .read<AddEmployeeBloc>()
+                          .employeesMiddleware
+                          .addEmployeeFunction(
+                            context,
+                            context.read<AddEmployeeBloc>(),
+                          ),
 
-                        size: size,
-                        title: 'add',
-                      ),
-                      (widget) => widget,
-                    ),
+                  size: size,
+                  title: 'add',
+                ),
               ],
             ),
           ),

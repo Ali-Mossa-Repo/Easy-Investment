@@ -22,9 +22,3 @@ class FailedSendLoginState extends LoginState {
   String message;
   FailedSendLoginState({required this.message});
 }
-
-class LoadingCheckLoggingState extends LoginState {}
-
-class SuccessCheckLoggingState extends LoginState {}
-
-class FailedCheckLoggingState extends LoginState {}

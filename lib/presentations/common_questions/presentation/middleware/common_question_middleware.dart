@@ -3,10 +3,12 @@ import 'package:admin_dashboard/presentations/common_questions/domain/entities/c
 import 'package:admin_dashboard/presentations/common_questions/domain/entities/total_common_questions_entity.dart';
 import 'package:admin_dashboard/presentations/common_questions/domain/entities/total_user_common_question_entity.dart';
 import 'package:admin_dashboard/presentations/common_questions/domain/entities/user_common_question_entity.dart';
+import 'package:admin_dashboard/presentations/common_questions/presentation/logic/bloc/add_admin_question/add_admin_question_bloc.dart';
 import 'package:admin_dashboard/presentations/common_questions/presentation/logic/bloc/bloc/view_update_question_bloc.dart';
 import 'package:admin_dashboard/presentations/common_questions/presentation/logic/bloc/common_questions_bloc.dart';
 import 'package:admin_dashboard/presentations/common_questions/presentation/logic/cubit/types_cubit.dart';
 import 'package:admin_dashboard/presentations/common_questions/presentation/models/types_drop_down_model.dart';
+import 'package:admin_dashboard/presentations/public/error_widget/snack_bar_widget.dart';
 import 'package:admin_dashboard/presentations/public/main_page/logic/change_page/bloc/change_page_bloc.dart';
 import 'package:admin_dashboard/presentations/public/public_widgets/notice_cancle_button_widget.dart';
 import 'package:admin_dashboard/presentations/public/public_widgets/notice_ok_button_widget.dart';
@@ -237,11 +239,33 @@ class CommonQuestionMiddleware {
     if (state is StartGetSuitalbeCommonQuestionsState) {
       getQuestions(context.read<CommonQuestionsBloc>());
     }
-    if (state is SuccessRemoveAdminCommonQuestionState) {
+    if (state is SuccessRemoveAdminCommonQuestionState ||
+        state is SuccessRemoveUserCommonQuestionState) {
       context.read<ChangePageBloc>().add(
         MoveToQuestionsPageEvent(title: 'Questions'),
       );
       getQuestions(context.read<CommonQuestionsBloc>());
+    } else if (state is FailedGetAdminCommonQuestionsState) {
+      SnackBarWidget().show(context, state.message, Colors.red);
+    } else if (state is FailedReGetAdminCommonQuestionsState) {
+      SnackBarWidget().show(context, state.message, Colors.red);
+    } else if (state is FailedGetUserCommonQuestionsState) {
+      SnackBarWidget().show(context, state.message, Colors.red);
+    } else if (state is FailedReGetUserCommonQuestionsState) {
+      SnackBarWidget().show(context, state.message, Colors.red);
+    } else if (state is FailedRemoveAdminCommonQuestionState) {
+      SnackBarWidget().show(context, state.message, Colors.red);
+    } else if (state is FailedRemoveUserCommonQuestionState) {
+      SnackBarWidget().show(context, state.message, Colors.red);
+    }
+  }
+
+  void showAddCommonQuestionState(
+    BuildContext context,
+    AddAdminQuestionState state,
+  ) {
+    if (state is FailedAddAdminCommonQuestionState) {
+      SnackBarWidget().show(context, state.message, Colors.red);
     }
   }
 
@@ -258,7 +282,8 @@ class CommonQuestionMiddleware {
     if (state is LoadingGetUserCommonQuestionsState) {
       return right(ListSearchShimmer(size: size));
     } else if (tempUserQuestions.isEmpty &&
-        state is SuccessGetUserCommonQuestionsState) {
+        state is SuccessGetUserCommonQuestionsState &&
+        tempUserQuestions.isEmpty) {
       return right(SvgPicture.asset(Assets.images.empty, fit: BoxFit.contain));
     } else if (state is FailedGetUserCommonQuestionsState) {
       return right(

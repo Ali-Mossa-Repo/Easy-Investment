@@ -758,26 +758,13 @@ class EmployeesMiddleware extends MemberImageMiddleware {
     if (state is LoadingGetEmployeesState) {
       return right(ListSearchShimmer(size: size));
     } else if (state is SuccessGetEmployeesState && tempList.isEmpty) {
-      return right(SvgPicture.asset(Assets.images.empty, fit: BoxFit.contain));
-    } else if (state is FailedGetEmployeesState) {
       return right(
         SizedBox(
           width: size.width,
-          child: SvgPicture.asset(Assets.images.error, fit: BoxFit.contain),
+          child: SvgPicture.asset(Assets.images.empty, fit: BoxFit.contain),
         ),
       );
-    } else {
-      return left(const SizedBox());
-    }
-  }
-
-  Either<Widget, Widget> getCorrectWidgetForAddEmployee(
-    AddEmployeeState state,
-    Size size,
-  ) {
-    if (state is LoadingAddNewEmployeeState) {
-      return right(LoadingWidget());
-    } else if (state is FailedAddNewEmployeeState) {
+    } else if (state is FailedGetEmployeesState) {
       return right(
         SizedBox(
           width: size.width,
@@ -793,17 +780,18 @@ class EmployeesMiddleware extends MemberImageMiddleware {
     ViewUpdateEmployeeState state,
     Size size,
   ) {
-    if (state is LoadingUpdateEmployeeIdImage ||
-        state is LoadingViewEmployeesState ||
-        state is ViewUpdateEmployeeInitial) {
+    if (state is ViewUpdateEmployeeInitial ||
+        state is LoadingViewEmployeesState) {
       return right(LoadingWidget());
-    } else if (state is FailedUpdateEmployeesState) {
+    } else if (state is FailedViewEmployeesState) {
       return right(
         SizedBox(
           width: size.width,
           child: SvgPicture.asset(Assets.images.error, fit: BoxFit.contain),
         ),
       );
+    } else if (state is SuccessViewEmployeesState) {
+      return left(const SizedBox());
     } else {
       return left(const SizedBox());
     }

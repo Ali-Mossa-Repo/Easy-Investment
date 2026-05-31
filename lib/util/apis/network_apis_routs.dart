@@ -44,6 +44,7 @@ class NetworkApisRouts {
   final String _getRequestsStatistics = 'get_Request_Statistics';
   final String _getEconomicEvaluation = 'economic_evaluation/';
   final String _getWalletMoney = 'wallets/ShowPlatformWallet';
+  final String _showPropertyOnStage = 'create_property_for_investment/';
   final String _getMoneiesRates = 'https://open.er-api.com/v6/latest/USD';
 
   String getBaseUrl() => _imageServer;
@@ -90,6 +91,7 @@ class NetworkApisRouts {
   String getRequestsStatisticsApi() => _server + _getRequestsStatistics;
   String getEconomicEvaluationApi() => _server + _getEconomicEvaluation;
   String getWalletMoneyApi() => _server + _getWalletMoney;
+  String showPropertyOnStageApi() => _server + _showPropertyOnStage;
 
   String getMoniesRatesApi() => _getMoneiesRates;
 }
